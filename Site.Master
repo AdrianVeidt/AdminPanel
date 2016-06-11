@@ -1,0 +1,328 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AdminPanel.SiteMaster" %>
+<%@ Register Assembly="DropDownList" Namespace="DropDownList" TagPrefix="cc1" %>
+<%-- @ Register TagPrefix="cc1" Namespace="RadioButtonsList" Assembly="RadioButtonsList" --%>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> Панель администратора</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+          <%:  Scripts.Render("~/bundles/jqueryval")%>
+           <%: Scripts.Render("~/bundles/jquery")%>
+
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+        <link href="~/Content/bootstrap-select.min.css" rel="stylesheet">
+        <link href="~/Content/navbar-fixed-top.css" rel="stylesheet">
+        <link href="~/Content/admin.css" rel="stylesheet"/>
+        <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet"/>
+        <link href="../Libs/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet" />
+        <script src="../Libs/Metro-UI-CSS-master/build/js/metro.js"></script>
+        <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+
+            <link rel="stylesheet" type="text/css" href="~\Content\bootstrap.min.css">
+        <!-- ClockPicker Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="~\Content\bootstrap-clockpicker.min.css">
+        <link rel="stylesheet" type="text/css" href="~\Content\bootstrap-clockpicker.css">
+        <link rel="stylesheet" type="text/css" href="~\Content\clockpicker.css">
+         <link rel="stylesheet" type="text/css" href="~\Content\jquery-clockpicker.min.css">
+         <link rel="stylesheet" type="text/css" href="~\Content\jquery-clockpicker.css">
+
+         <!-- ClockPicker script -->
+        <script type="text/javascript" src="~/Scripts/bootstrap-clockpicker.min.js"></script>
+        <!--<link href="~/Libs/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet" />-->
+        <link href="~/Libs/Metro-UI-CSS-master/docs/css/metro.css" rel="stylesheet" />
+        <script src="~/Libs\Metro-UI-CSS-master\js\widgets\calendar.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/bootstrap-select.min.js"></script>
+        <script src="~/Scripts/ie10-viewport-bug-workaround.js"></script>
+        <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+        <script src="~/Scripts/jquery.datetimepicker.js"></script>
+        <script src="~/Scripts/timepicker-ui.min.js"></script>
+        <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet">
+        <script src="~/Scripts/jquery.cookie.js"></script>
+        <script src="js/function.js"></script>
+        <link href="~/Content/timegrid.css" rel="stylesheet">
+
+        <script src="~/Scripts/jjquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="~/Scripts/jjquery.maskedinput.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+            </Scripts>
+        </asp:ScriptManager>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Навигация</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Админ-панель</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                       <!-- <li class="navbar-brand"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Заказы</li> !-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Настройки<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">				
+                                <li class="dropdown-header">Справочники</li>
+                                <li><a href="menu.aspx">Меню</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Система</li>                                
+                                <li><a href="">Настройки аккаунта</a></li>
+                                <li><a href="">Пароль</a></li>
+                            </ul>
+                        </li>	
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>Помощь<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">				
+                                <li class="dropdown-header">Остались вопросы?</li>
+                                <li><a href="https://m-bronirovanie.ru/#feedback" target="new">Задать вопрос (форма)</a></li>
+                                <li><a href="mailto:13481513@mail.ru?subject=Вопрос по модулю Бронирования&body=Здравствуйте, ">Задать вопрос (почта)</a></li>
+                                <li><a href="mailto:13481513@mail.ru?subject=Обнаружена ошибка на сайте&body=Здравствуйте, ">Обнаружена ошибка</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Аккаунт<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="?logout">Выйти</a></li>    
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12">
+        </div>                
+            <div class="col-xs-12 col-sm-4 col-md-3 bottom-left"><h3>Новая бронь</h3>
+         <!-- Форма новой брони, данные шлем на серв !-->
+        <form method="POST" id="addOrder">
+            <div class="form-group">
+            <label for="date">Дата и время:</label>
+              <%-- Календарь --%>
+                <div class="calendar form-group" 
+                        data-week-start="1" 
+                        data-start-mode="month" 
+                        id="cal-events"
+                        data-locale="ru"
+                        data-day-click="day_click">
+                </div>
+            <input name="time" type="text" class="form-control input-group clockpicker" id="time" value="" placeholder="Выберите время">
+                    <script type="text/javascript">
+                        $('#time').clockpicker({
+                            placement: 'bottom',
+                            align: 'right',
+                            autoclose: true,
+                            'default': '20:48'
+                        });
+                    </script>
+            </div>
+
+            <div class="form-group">
+            <label for="etag">Номер стола</label>
+            <asp:DropDownList ID="tablenumlist" runat="server" class="form-control"></asp:DropDownList>
+            </div>
+
+            <div id="stolInfo" class="form-group">
+            <label for="etag">Количество мест</label>
+            <asp:DropDownList ID="tablecountsitlist" runat="server" class="form-control"></asp:DropDownList>
+            </div>
+
+            <div class="form-group">
+            <label for="num">ФИО</label>
+            <asp:TextBox ID="FIO" class="form-control" runat="server" type="text" placeholder="ФИО"></asp:TextBox>
+            </div>
+
+            <div class="form-group">
+            <label for="price">Телефон</label>
+            <asp:TextBox ID="phone" class="form-control" runat="server" type="text" placeholder="Телефон клиента"></asp:TextBox>
+            </div>
+
+            <div class="form-group">
+            <label for="price">Статус</label>
+            <asp:DropDownList ID="statuslist" runat="server" class="form-control">
+                <asp:ListItem
+                Text="Зарезервирован"
+                Value="r"
+                />
+                <asp:ListItem
+                Text="Забронирован"
+                Value="b"
+                />
+            </asp:DropDownList>
+            </div>
+
+            <div class="form-group">
+            <label for="price">Комментарий по брони</label>
+            <asp:TextBox ID="comment" class="form-control" runat="server" type="text" placeholder="Дополнительный комментарий"></asp:TextBox>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <asp:Button ID="submit" class="btn btn-default btn-primary form-control" runat="server" text="Добавить бронь" OnClick="submit_Click"/>
+            </div>
+        </form>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9">
+            <!-- Страничная навигация !-->
+            <div class="form-groop pull-right">
+            <ul class="pagination"><li class="active"><a>1</a></li><li><a href="orders/page/10" data-ci-pagination-page="10">2</a></li><li><a href="orders/page/20" data-ci-pagination-page="20">3</a></li><li class="control"><a href="orders/page/10" data-ci-pagination-page="10">&gt;</a></li><li><a href="orders/page/150" data-ci-pagination-page="150">>></a></li></ul>
+            </div>
+            <div class="form-group form-inline pull-left">
+                <div class="form-group">
+                    <!-- Фильтр заказов, пока не арбайтен !-->
+                     <div class="dropdown">
+                     <asp:DropDownList ID="Filter"  runat="server" class="btn btn-default dropdown-toggle caret dropdown-menu" data-toggle="dropdown" aria-labelledby="filter" aria-haspopup="true" aria-expanded="true">
+                    <asp:ListItem
+                        Text="Показать все"
+                        Value="all"
+                     />
+                     <asp:ListItem
+                        Text="Забронированные"
+                        Value="booked"
+                     />
+                     <asp:ListItem
+                        Text="В резерве"
+                        Value="reserved"
+                     />
+                    </asp:DropDownList>
+                        <div class="form-group">
+                        </div>
+                    </div>
+                </div>
+
+<!-- старая табличка
+<asp:Table ID="AdminTable" runat="server" class="table table-striped table-bordered table-hover table-condensed">
+    <asp:TableHeaderRow ID="AdminTableHeaderRow">
+        <asp:TableHeaderCell>№<br/> Заявки</asp:TableHeaderCell> 
+        <asp:TableHeaderCell>Заявки</asp:TableHeaderCell> 
+        <asp:TableHeaderCell>Телефон</asp:TableHeaderCell>
+        <asp:TableHeaderCell>ФИО клиента</asp:TableHeaderCell>
+        <asp:TableHeaderCell>Комментарий к заказу</asp:TableHeaderCell>
+        <asp:TableHeaderCell>№ стола</asp:TableHeaderCell>
+        <asp:TableHeaderCell>Количество мест</asp:TableHeaderCell>
+        <asp:TableHeaderCell>Дата <br/> (Клиент придет)</asp:TableHeaderCell>
+        <asp:TableHeaderCell>Статус</asp:TableHeaderCell>
+        <asp:TableHeaderCell>Операции</asp:TableHeaderCell>
+    </asp:TableHeaderRow>
+    
+    <asp:TableRow>
+        <asp:TableCell></asp:TableCell>
+    </asp:TableRow>
+</asp:Table>
+!-->
+<!-- Новая табличка, она классная, ее не трогаем !--> 
+<table class="table table-striped table-bordered table-hover table-condensed">
+<thead>
+<tr>
+<th>№<br/> Заявки</th><th>Телефон</th><th>ФИО клиента</th><th>Комментарий к заказу</th><th>Цена (заявки)</th><th>№ стола</th><th>Количество мест<br/></th><th>Дата</th><th>Время</th><th>Статус</th><th>Операции</th></tr>
+</thead>
+<tbody>
+    <asp:Repeater ID="repeater" runat="server"> 
+        <ItemTemplate>
+            <tr>
+                <td>
+                    <%# Eval("Id")%>
+                </td>
+                <td>
+                    <%# Eval("Phone") %>
+                </td>
+                 <td>
+                    <%# Eval("Client_name")%>
+                </td>
+                <td>
+                    <%# Eval("Menu") %>
+                </td>
+                <td> <%# Eval("Price") %></td>
+                <td>
+                    <%# Eval("Client_table") %>
+                </td>
+                <td>
+                    <%# Eval("Places") %>
+                </td>
+                <td>
+                    <%# Eval("Date") %>
+                </td>
+                <td>
+                    <%# Eval("Time") %>
+                </td>
+            </tr>
+        </ItemTemplate>
+    </asp:Repeater>
+</tbody>
+</table>
+            </div>
+                <div class="col-xs-12 col-sm-12">
+                </div>
+       </div>
+    </div>
+</div>
+
+
+
+        <script type="text/javascript">
+            $('.clockpicker').clockpicker()
+                .find('input').change(function () {
+                    // TODO: time changed
+                    console.log(this.value);
+                });
+            $('#time').clockpicker({
+                autoclose: true
+            });
+
+            if (something) {
+                // Manual operations (after clockpicker is initialized).
+                $('#time').clockpicker('show') // Or hide, remove ...
+                        .clockpicker('toggleView', 'minutes');
+            }
+        </script>
+
+
+        <%-- скрытый вывод календаря --%>
+        <script type="text/javascript">
+            $(function () {
+                debugger;
+                $("#date")
+                        .ui-datepicker-calendar({ nextText: "", prevText: "", changeMonth: true, changeYear: true })
+                        .mask("99/99/9999");
+            });
+
+        </script>
+
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <hr />
+            <footer>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,96 @@
+.claer {
+  clear:both;
+}
+.tabs_cont {
+  background:orange;
+  width:100%;
+  height:415px;
+  position:relative;
+}
+
+.allT {
+    box-sizing: border-box;
+    height: 100%;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.tb {
+  position:relative;
+  padding:4px 5px;
+  width:68px;
+  height: 35px;
+  display:inline-block;
+  background:#fff;
+  text-align:center;
+  line-height:30px;
+  border:1px solid #fff;
+  float:left;
+  -webkit-transition: all 0.3s ease;/* Safari 3.2+, Chrome */
+	-moz-transition: all 0.3s ease;/* Firefox 4-15 */
+	-o-transition: all 0.3s ease;/* Opera 10.5-12.00 */
+	transition: all 0.3s ease;/* Firefox 16+, Opera 12.50+ */
+}
+.tb.f {cursor: pointer;}
+.tb.f:hover {
+    background: yellowgreen none repeat scroll 0 0;
+    border-color: yellowgreen;
+}
+.tb .tStart {
+    margin-left: 7px;
+    text-align: left;
+}
+.tb .tEnd {
+    text-align:right;
+}
+
+.tb.start .tStart:before {
+  content:"с ";
+}
+.tb.end .tEnd:before {
+    content: "по ";
+}
+
+.tb.s {
+  background:green;
+  color:#fff;
+  border-color:green;
+}
+.tb.s span{
+    opacity:0.7;
+    font-size:60%;
+}
+.tb.s.start span.tStart{
+    opacity:1;
+    font-size:100%;
+    font-weight: lighter;
+}
+.tb.s.end span.tEnd {
+    font-size: 100%;
+    font-weight: lighter;
+    opacity: 1;
+}
+.tb.r,.tb.b {
+  cursor:default;
+}
+.tb .tStart, .tb .tEnd {
+    display: block;
+    font-size: 12px;
+    line-height: 12px;
+}
+.tb.closed {
+    background: whitesmoke none repeat scroll 0 0;
+    border-color: whitesmoke;
+    color: silver;
+}
+.tb.b {
+  background:red;
+  color:#fff;
+  border-color:red;
+}
+.tb.r {
+  background:yellow;
+  border-color:yellow;
+}

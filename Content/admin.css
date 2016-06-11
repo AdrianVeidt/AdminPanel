@@ -1,0 +1,54 @@
+.dropdown .glyphicon, #navbar .glyphicon {
+    font-size: 12px;
+    margin-right: 6px;
+}
+.btn .glyphicon {
+    font-size: 12px;
+    margin-right: 6px;
+}
+.uploadWrapper {}
+.uploadWrapper .upload{}
+.uploadWrapper .upload input[type=file]{
+    display: none;
+}
+.uploadWrapper .upload .status{}
+.uploadWrapper .upload .files{}
+.uploadWrapper .files img {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-width: 100%;
+}
+.uploadWrapper .upload .filename{}
+
+.container-fluid {
+    max-width: 1600px;
+}
+input[name=st_w],input[name=st_h],input[name=st_top],input[name=st_left] {
+    max-width: 120px;
+}
+textarea {box-sizing: border-box; width: 100% !important;}
+h4, .h4, h3, .h3 {
+     border-bottom: 1px solid;
+     margin-bottom: 8px;
+     margin-top: 5px;
+}
+h4, .h4 {
+   
+    font-size: 18px;
+    
+    padding-bottom: 4px;
+}
+table {
+    table-layout: auto;
+}
+table th {
+    font-size: 80%;
+    text-align: center;
+    vertical-align: middle !important;
+}
+table th:first-line {
+    font-size: 14px;
+}
+table th td {}
+table tr {}
+table tr td {}
