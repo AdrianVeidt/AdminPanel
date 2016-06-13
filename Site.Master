@@ -26,23 +26,21 @@
         <link href="~/Content/navbar-fixed-top.css" rel="stylesheet">
         <link href="~/Content/admin.css" rel="stylesheet"/>
         <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet"/>
-        <link href="../Libs/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet" />
-        <script src="../Libs/Metro-UI-CSS-master/build/js/metro.js"></script>
+       <!-- <link href="../Libs/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet" />
+        <script src="../Libs/Metro-UI-CSS-master/build/js/metro.js"></script> -->
         <script src="~/Scripts/jquery-2.1.1.min.js"></script>
 
-            <link rel="stylesheet" type="text/css" href="~\Content\bootstrap.min.css">
         <!-- ClockPicker Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="~\Content\bootstrap-clockpicker.min.css">
         <link rel="stylesheet" type="text/css" href="~\Content\bootstrap-clockpicker.css">
         <link rel="stylesheet" type="text/css" href="~\Content\clockpicker.css">
-         <link rel="stylesheet" type="text/css" href="~\Content\jquery-clockpicker.min.css">
+         <link rel="stylesheet" type="text/css" href="C:\Users\Veidt\Desktop\AdminPanel\AdminPanel\Content\bootstrap-clockpicker.min.css">
          <link rel="stylesheet" type="text/css" href="~\Content\jquery-clockpicker.css">
 
          <!-- ClockPicker script -->
         <script type="text/javascript" src="~/Scripts/bootstrap-clockpicker.min.js"></script>
-        <!--<link href="~/Libs/Metro-UI-CSS-master/build/css/metro.css" rel="stylesheet" />-->
+    <!--
         <link href="~/Libs/Metro-UI-CSS-master/docs/css/metro.css" rel="stylesheet" />
-        <script src="~/Libs\Metro-UI-CSS-master\js\widgets\calendar.js"></script>
+        <script src="~/Libs\Metro-UI-CSS-master\js\widgets\calendar.js"></script> -->
         <script src="~/Scripts/bootstrap.min.js"></script>
         <script src="~/Scripts/bootstrap-select.min.js"></script>
         <script src="~/Scripts/ie10-viewport-bug-workaround.js"></script>
@@ -125,12 +123,7 @@
             <div class="form-group">
             <label for="date">Дата и время:</label>
               <%-- Календарь --%>
-                <div class="calendar form-group" 
-                        data-week-start="1" 
-                        data-start-mode="month" 
-                        id="cal-events"
-                        data-locale="ru"
-                        data-day-click="day_click">
+                <div>
                 </div>
             <input name="time" type="text" class="form-control input-group clockpicker" id="time" value="" placeholder="Выберите время">
                     <script type="text/javascript">
@@ -141,6 +134,22 @@
                             'default': '20:48'
                         });
                     </script>
+                            <script type="text/javascript">
+                                $('.clockpicker').clockpicker()
+                                    .find('input').change(function () {
+                                        // TODO: time changed
+                                        console.log(this.value);
+                                    });
+                                $('#time').clockpicker({
+                                    autoclose: true
+                                });
+
+                                if (something) {
+                                    // Manual operations (after clockpicker is initialized).
+                                    $('#time').clockpicker('show') // Or hide, remove ...
+                                            .clockpicker('toggleView', 'minutes');
+                                }
+                     </script>
             </div>
 
             <div class="form-group">
@@ -285,30 +294,14 @@
 
 
 
-        <script type="text/javascript">
-            $('.clockpicker').clockpicker()
-                .find('input').change(function () {
-                    // TODO: time changed
-                    console.log(this.value);
-                });
-            $('#time').clockpicker({
-                autoclose: true
-            });
 
-            if (something) {
-                // Manual operations (after clockpicker is initialized).
-                $('#time').clockpicker('show') // Or hide, remove ...
-                        .clockpicker('toggleView', 'minutes');
-            }
-        </script>
 
 
         <%-- скрытый вывод календаря --%>
         <script type="text/javascript">
             $(function () {
-                debugger;
                 $("#date")
-                        .ui-datepicker-calendar({ nextText: "", prevText: "", changeMonth: true, changeYear: true })
+                        .calendar({ nextText: "", prevText: "", changeMonth: true, changeYear: true })
                         .mask("99/99/9999");
             });
 

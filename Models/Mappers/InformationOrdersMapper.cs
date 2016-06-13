@@ -41,13 +41,13 @@ namespace AdminPanel.Mapper
             return informationOrders;
         }
 
-		public int InsertInformationOrders(string table, string places, string name, string phone)
+		public int InsertInformationOrders(string table, int places, string name, string phone)
 		{
 			        
 			parameters = new Dictionary<string, string>();
-			parameters.Add("client_table", table);
+			parameters.Add("client_table", table.ToString());
 			parameters.Add("places", places.ToString());
-			parameters.Add("client_name", name);
+			parameters.Add("client_name", name.ToString());
 			parameters.Add("phone", phone.ToString());
 			String response = jsonMaster.GetJSON(url_insert_information_order, parameters);
 			JObject jObject = JObject.Parse(response);

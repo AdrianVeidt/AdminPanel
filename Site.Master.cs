@@ -93,7 +93,7 @@ namespace AdminPanel
 			InformationOrdersMapper informationOrdersMapper = new InformationOrdersMapper();
 			//ClientScriptManager.RegisterForEventValidation(				;
 			//informationOrdersMapper.InsertInformationOrders(tablenumlist.Text, tablecountsitlist.Text, FIO.Text, phone.Text);
-			informationOrdersMapper.InsertInformationOrders("2", "2", FIO.Text.ToString(), phone.Text);
+			informationOrdersMapper.InsertInformationOrders("2", 2, FIO.Text.ToString(), phone.Text.ToString());
 			
 		}
     }
